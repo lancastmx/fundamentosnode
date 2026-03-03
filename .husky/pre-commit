@@ -1,2 +1,4 @@
 #!/usr/bin/env sh
-bun run index.ts
+
+bun run format
+bun run lint

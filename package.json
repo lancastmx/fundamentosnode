@@ -11,6 +11,9 @@
   },
   "scripts": {
     "prepare": "husky",
-    "dev": "bun --watch index.ts"
+    "dev": "bun --watch index.ts",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
   }
 }
