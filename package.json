@@ -15,5 +15,14 @@
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
     "check-format": "prettier --check ."
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
