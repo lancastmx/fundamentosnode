@@ -8,5 +8,9 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "dev": "bun --watch index.ts"
   }
 }
