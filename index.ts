@@ -1,6 +1,8 @@
+// TODO: Considerar mover los console.logs iniciales a un archivo de configuración separado
 console.log('Hello via Bun!')
 console.log(process.version)
 console.log('hola perrita')
+
 /**
  * Función que suma dos números.
  * @param a - El primer número a sumar.
@@ -8,6 +10,7 @@ console.log('hola perrita')
  * @returns La suma de ambos números.
  */
 export function suma(a: number, b: number): number {
+  // FIXME: Esta función falla si se le pasan strings en lugar de numbers. Agregar validación de tipos.
   return a + b
 }
 
@@ -28,6 +31,7 @@ export function resta(a: number, b: number): number {
  * @returns El producto de ambos factores.
  */
 export function multiplicar(a: number, b: number): number {
+  // TODO: Implementar lógica para manejar multiplicaciones por cero de forma más eficiente si es necesario.
   return a * b
 }
 
@@ -45,4 +49,5 @@ if (resultado !== 5) {
   throw new Error('La suma está mal ❌')
 }
 
+// TODO: Crear un logger más robusto que reemplace este console.log genérico
 console.log('Todo correcto ✅')
