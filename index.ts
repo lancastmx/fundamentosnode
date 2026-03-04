@@ -1,7 +1,13 @@
 console.log('Hello via Bun!')
 console.log(process.version)
 console.log('hola perrita')
-function suma(a: number, b: number): number {
+/**
+ * Función que suma dos números.
+ * @param a - El primer número a sumar.
+ * @param b - El segundo número a sumar.
+ * @returns La suma de ambos números.
+ */
+export function suma(a: number, b: number): number {
   return a + b
 }
 
