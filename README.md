@@ -69,4 +69,23 @@ Para facilitar el flujo de trabajo, utiliza los siguientes triggers exactos de n
 
 ---
 
+## 🌍 Portabilidad: Lleva estos Agentes a otros Proyectos
+
+Esta arquitectura de agentes está diseñada para ser **agnóstica del framework**. Puedes exportar este "cerebro IA" a cualquier otro proyecto (Angular, Express, React, etc.) siguiendo estos pasos:
+
+### 1. Archivos a exportar
+
+Copia los siguientes elementos a la raíz de tu nuevo proyecto:
+
+- La carpeta `.gemini/` (Contiene la lógica de todos los micro-agentes).
+- El archivo `AGENTS.md` (El enrutador principal).
+- El script `setup-agents.sh` (Para actualizar rutas si creas nuevas skills).
+
+### 2. Instalación en el nuevo entorno
+
+Si el nuevo proyecto no usa Bun, simplemente instala el CLI usando npm:
+
+```bash
+npm install -g @google/gemini-cli
 This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+```
