@@ -20,15 +20,31 @@ A continuación se detalla el catálogo completo de las habilidades (Skills) de 
 
 ---
 
-### 3. `git-flow-manager`
+### 3. `git-start-pbi`
 
-**¿Qué hace?**: Orquesta todo el ciclo de vida de una nueva característica en Git, asegurando que se documente y se pruebe el código antes de la fusión.
-**¿Cómo lo uso?**: "Nuevo PBI: [nombre]" para iniciar. "Cerrar PBI" para terminar.
-**Resultado**: Crea una nueva rama `feature/[nombre]`. Al terminar, fuerza la ejecución de testeos y documentación, hace commit, integra a `dev` preservando historial (`--no-ff`), hace rebase a `main` y limpia la rama.
+**¿Qué hace?**: Inicializa una nueva rama de feature para un PBI de manera rápida y segura.
+**¿Cómo lo uso?**: "iniciar PBI", "nuevo PBI" o "crear rama"
+**Resultado**: Verifica que estés en la rama `dev`, crea una nueva rama con patrón `feature/[nombre]` y te posiciona en ella.
 
 ---
 
-### 4. `logger-gen`
+### 4. `git-commit-advance`
+
+**¿Qué hace?**: Analiza cambios en el código y crea commits automáticos con mensajes descriptivos, sin bloquear tu flujo de trabajo.
+**¿Cómo lo uso?**: "guardar avance", "hacer commit" o "registrar cambios"
+**Resultado**: Ejecuta `git add .`, redacta un mensaje de commit resumiendo los cambios y realiza el commit. Si fallan validaciones pre-commit en archivos `.md` o config, las saltará; si es en TypeScript, te notificará del error.
+
+---
+
+### 5. `git-close-pbi`
+
+**¿Qué hace?**: Integra una rama feature al flujo principal preservando historial y sin borrar la rama origen.
+**¿Cómo lo uso?**: "cerrar PBI", "fin del PBI" o "integrar feature"
+**Resultado**: Invoca primero `git-commit-advance` para guardar pendientes, luego ejecuta merge a dev con `--no-ff`, push a dev, rebase de main con dev, y push a main. La rama feature permanece intacta.
+
+---
+
+### 6. `logger-gen`
 
 **¿Qué hace?**: Inserta logs de seguimiento y depuración (tracing) en el código.
 **¿Cómo lo uso?**: "al crear o modificar funciones importantes, o cuando el usuario ponga '// generar logs' sobre una función"
@@ -36,7 +52,7 @@ A continuación se detalla el catálogo completo de las habilidades (Skills) de 
 
 ---
 
-### 5. `skill-factory`
+### 7. `skill-factory`
 
 **¿Qué hace?**: Es el creador de otros agentes. Fabrica y vincula rápidamente la estructura ideal para construir nuevas habilidades como esta.
 **¿Cómo lo uso?**: "cuando el usuario pida una nueva capacidad o herramienta"
@@ -44,7 +60,7 @@ A continuación se detalla el catálogo completo de las habilidades (Skills) de 
 
 ---
 
-### 6. `skill-doc-writer`
+### 8. `skill-doc-writer`
 
 **¿Qué hace?**: Yo redacto este manual para humanos leyendo la configuración actual del sistema de IA.
 **¿Cómo lo uso?**: "al solicitar crear o actualizar el manual de agentes"
@@ -52,7 +68,7 @@ A continuación se detalla el catálogo completo de las habilidades (Skills) de 
 
 ---
 
-### 7. `unit-test-gen` (o `test-creator`)
+### 9. `unit-test-gen` (o `test-creator`)
 
 **¿Qué hace?**: Especialista de QA (Quality Assurance) para el código nativo en entorno Bun.
 **¿Cómo lo uso?**: "cada vez que se modifique o cree un archivo .ts"
