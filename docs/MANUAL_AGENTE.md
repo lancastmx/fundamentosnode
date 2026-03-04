@@ -38,9 +38,9 @@ A continuación se detalla el catálogo completo de las habilidades (Skills) de 
 
 ### 5. `git-close-pbi`
 
-**¿Qué hace?**: Integra una rama feature al flujo principal preservando historial y sin borrar la rama origen.
+**¿Qué hace?**: Integra código al flujo principal bajo la filosofía "nunca prohibir, siempre ayudar a mantener todo sincronizado".
 **¿Cómo lo uso?**: "cerrar PBI", "fin del PBI" o "integrar feature"
-**Resultado**: Invoca primero `git-commit-advance` para guardar pendientes, luego ejecuta merge a dev con `--no-ff`, push a dev, rebase de main con dev, y push a main. La rama feature permanece intacta.
+**Resultado**: Invoca `git-commit-advance` y decide dinámicamente: si estás en `feature/*` (flujo normal hacia dev y main), en `dev` (cambio rápido a main), o en `main` (hotfix hacia dev). En todos los casos preserva ramas y sincroniza repositorios.
 
 ---
 

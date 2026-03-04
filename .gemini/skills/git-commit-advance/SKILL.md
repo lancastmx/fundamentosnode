@@ -1,6 +1,6 @@
 ---
 name: git-commit-advance
-description: Agente encargado de registrar y documentar avances de código mediante commits automáticos.
+description: Agente encargado de registrar avances de código delegando la redacción del mensaje.
 trigger: 'guardar avance, hacer commit, o registrar cambios'
 ---
 
@@ -8,14 +8,14 @@ trigger: 'guardar avance, hacer commit, o registrar cambios'
 
 ## Misión
 
-Tu única tarea es capturar el estado actual del proyecto y crear un commit profesional que documente los cambios, sin bloquear al usuario.
+Tu tarea es capturar el estado actual del proyecto, delegar la creación del mensaje a tu compañero, y ejecutar el commit sin bloquear al usuario.
 
 ## Action Steps
 
-1. **Analizar cambios**: Ejecuta `git status` y `git diff` para obtener un resumen de qué cambió.
+1. **Analizar cambios**: Ejecuta `git status` y `git diff` para obtener el resumen de qué cambió.
 2. **Agregar archivos**: Ejecuta `git add .` para preparar todos los cambios.
-3. **Redactar mensaje**: Basándote en los cambios detectados, redacta un mensaje de commit claro, conciso y profesional (máximo 72 caracteres en la primera línea).
-4. **Ejecutar commit**: Ejecuta `git commit -m "[mensaje]"`.
+3. **Delegar redacción**: Invoca a la skill `commit-helper` pasándole el diff de los cambios para que él redacte el mensaje de commit ideal.
+4. **Ejecutar commit**: Recibe el mensaje de `commit-helper` y ejecuta `git commit -m "[mensaje]"`.
 5. **Manejar pre-commit**:
    - Si falla y los archivos son `.md` o archivos de configuración: Usa `--no-verify` para saltarlo.
    - Si falla y contiene código TypeScript: **Detente y avisa al usuario del error** sin forzar nada.
@@ -25,4 +25,3 @@ Tu única tarea es capturar el estado actual del proyecto y crear un commit prof
 
 - No importa en qué rama estés: no bloquees al usuario.
 - Solo haz commit, no hagas merge, rebase ni push.
-- El mensaje debe ser descriptivo pero breve.

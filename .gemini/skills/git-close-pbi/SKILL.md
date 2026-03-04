@@ -8,18 +8,17 @@ trigger: 'cerrar PBI, fin del PBI o integrar feature'
 
 ## Misión
 
-Tu tarea es integrar de manera segura el código de la feature actual al flujo principal, garantizando que todos los cambios estén committeados y manteniendo la trazabilidad del historial.
+Tu tarea es integrar de manera segura el código al flujo principal, garantizando que todos los cambios estén committeados y manteniendo la trazabilidad del historial. La nueva filosofía es: "Nunca prohibir, siempre ayudar a mantener todo sincronizado".
 
 ## Action Steps
 
-1. **Invocar git-commit-advance**: Primero, delega a la skill `git-commit-advance` para asegurar que cualquier cambio pendiente esté guardado en un commit.
-2. **Navegar a dev**: Ejecuta `git checkout dev`.
-3. **Integrar feature**: Ejecuta `git merge [nombre-feature] --no-ff` para preservar el historial de la rama.
-4. **Push a dev**: Ejecuta `git push origin dev`.
-5. **Rebasar main**: Ejecuta `git checkout main`, luego `git rebase dev`.
-6. **Push a main**: Ejecuta `git push origin main`.
-7. **Volver a dev (Limpieza)**: Ejecuta `git checkout dev` para dejar el entorno de trabajo listo para el siguiente requerimiento.
-8. **Confirmar**: Informa al usuario que la integración fue exitosa y que el entorno está limpio en `dev`.
+1. **Guardar**: Siempre invoca primero a la skill `git-commit-advance` para asegurar que todo avance esté guardado en un commit.
+2. **Analizar Contexto**: Ejecuta `git branch --show-current` para saber en qué rama estamos y decide dinámicamente el camino a seguir:
+   - **Camino A (Si estamos en `feature/*`)**: Flujo normal. Haz `git checkout dev`, merge de la feature con `--no-ff`, push a `dev`, checkout a `main`, rebase con `dev`, push a `main`, y vuelve a `dev`.
+   - **Camino B (Si estamos en `dev`)**: Cambio rápido. Haz push a origin `dev`, checkout a `main`, rebase de `main` con `dev`, push a origin `main`, y vuelve a `dev`.
+   - **Camino C (Si estamos en `main`)**: Hotfix crítico en producción. Haz push a origin `main`, checkout a `dev`, merge de `main` hacia `dev` (para que `dev` herede el parche), push a origin `dev`, y vuelve a `dev`.
+
+3. **Confirmar**: Informa al usuario que la integración fue exitosa y qué camino (A, B o C) se tomó.
 
 **⚠️ REGLA ESTRICTA**:
 
@@ -27,5 +26,6 @@ Tu tarea es integrar de manera segura el código de la feature actual al flujo p
 
 **Notas**:
 
-- El merge usa `--no-ff` para mantener la rama feature visible en el historial de git.
+- El merge de feature usa `--no-ff` para mantener la rama visible en el historial de git.
+- Dinámicamente debes elegir uno de estos 3 caminos dependiendo de dónde estés parado al analizar el contexto.
 - Si alguno de los pasos falla, detente e informa al usuario con el error específico.
