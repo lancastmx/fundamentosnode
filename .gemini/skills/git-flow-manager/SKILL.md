@@ -46,9 +46,10 @@ Eres el administrador del flujo de código. Tienes 4 fases de operación distint
 2. Ejecuta el protocolo estricto de integración:
    - `git checkout dev`
    - `git merge feature/[nombre-del-pbi] --no-ff -m "merge: finalización de PBI [nombre]"`
+   - `git push`
    - `git checkout main`
    - `git rebase dev`
+   - `git push`
 3. Limpieza:
-   - `git branch -d feature/[nombre-del-pbi]`
    - `git checkout dev`
 4. Reporta al usuario que la característica ha sido integrada a main y dev está limpio.
