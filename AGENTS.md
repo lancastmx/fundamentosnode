@@ -7,5 +7,7 @@
 - `git-flow-manager`: .gemini/skills/git-flow-manager/
 - `logger-gen`: .gemini/skills/logger-gen/
 - `pbi-manager`: .gemini/skills/pbi-manager/
+- `skill-doc-writer`: .gemini/skills/skill-doc-writer/
 - `skill-factory`: .gemini/skills/skill-factory/
+- `template-generator`: .gemini/skills/template-generator/
 - `unit-test-gen`: .gemini/skills/unit-test-gen/
