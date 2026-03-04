@@ -66,6 +66,25 @@ const resultado = multiplicar(10, 5)
 console.log(resultado) // Imprime: 50
 ```
 
+### `quienesSomos`
+
+| Parámetro | Tipo | Retorno  |
+| --------- | ---- | -------- |
+|           |      | `string` |
+
+#### Lógica Interna
+
+La función `quienesSomos` se encarga de presentar el proyecto a través de una cadena de texto. Está exportada (`export`) de manera que pueda ser consumida por otros módulos, principalmente para corroborar sus valores en testing.
+
+#### Ejemplo de uso
+
+```typescript
+import { quienesSomos } from './index.ts'
+
+const presentacion = quienesSomos()
+console.log(presentacion)
+```
+
 ## Relación con Tests
 
 Este módulo cuenta con pruebas unitarias asociadas en el archivo `index.test.ts`. Dichas pruebas validan que el funcionamiento aritmético de la función `suma` maneje correctamente tanto sumas de factores positivos como negativos mediante la librería nativa `bun:test`. Adicionalmente, `index.ts` cuenta con un simple `throw new Error` al final de su script a manera de aserción preventiva en tiempo de ejecución.
