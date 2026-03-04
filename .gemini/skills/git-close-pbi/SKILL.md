@@ -18,7 +18,8 @@ Tu tarea es integrar de manera segura el código de la feature actual al flujo p
 4. **Push a dev**: Ejecuta `git push origin dev`.
 5. **Rebasar main**: Ejecuta `git checkout main`, luego `git rebase dev`.
 6. **Push a main**: Ejecuta `git push origin main`.
-7. **Confirmar**: Informa al usuario que la integración fue exitosa.
+7. **Volver a dev (Limpieza)**: Ejecuta `git checkout dev` para dejar el entorno de trabajo listo para el siguiente requerimiento.
+8. **Confirmar**: Informa al usuario que la integración fue exitosa y que el entorno está limpio en `dev`.
 
 **⚠️ REGLA ESTRICTA**:
 
