@@ -26,6 +26,46 @@ const resultado = suma(10, 5)
 console.log(resultado) // Imprime: 15
 ```
 
+### `resta`
+
+| Parámetro | Tipo     | Retorno  |
+| --------- | -------- | -------- |
+| `a`       | `number` |          |
+| `b`       | `number` | `number` |
+
+#### Lógica Interna
+
+La función `resta` toma dos operandos numéricos y retorna la sustracción del primero menos el segundo. Está exportada (`export`) de manera que pueda ser consumida por otros módulos, primariamente por suites de testing.
+
+#### Ejemplo de uso
+
+```typescript
+import { resta } from './index.ts'
+
+const resultado = resta(10, 5)
+console.log(resultado) // Imprime: 5
+```
+
+### `multiplicar`
+
+| Parámetro | Tipo     | Retorno  |
+| --------- | -------- | -------- |
+| `a`       | `number` |          |
+| `b`       | `number` | `number` |
+
+#### Lógica Interna
+
+La función `multiplicar` toma dos operandos numéricos y retorna su producto cruzado multiplicando el factor uno con el segundo. Está exportada (`export`) de manera que pueda ser consumida por otros módulos.
+
+#### Ejemplo de uso
+
+```typescript
+import { multiplicar } from './index.ts'
+
+const resultado = multiplicar(10, 5)
+console.log(resultado) // Imprime: 50
+```
+
 ## Relación con Tests
 
 Este módulo cuenta con pruebas unitarias asociadas en el archivo `index.test.ts`. Dichas pruebas validan que el funcionamiento aritmético de la función `suma` maneje correctamente tanto sumas de factores positivos como negativos mediante la librería nativa `bun:test`. Adicionalmente, `index.ts` cuenta con un simple `throw new Error` al final de su script a manera de aserción preventiva en tiempo de ejecución.

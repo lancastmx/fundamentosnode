@@ -11,6 +11,26 @@ export function suma(a: number, b: number): number {
   return a + b
 }
 
+/**
+ * Función que resta dos números.
+ * @param a - El minuendo.
+ * @param b - El sustraendo.
+ * @returns La resta de a menos b.
+ */
+export function resta(a: number, b: number): number {
+  return a - b
+}
+
+/**
+ * Función que multiplica dos números.
+ * @param a - El primer factor.
+ * @param b - El segundo factor.
+ * @returns El producto de ambos factores.
+ */
+export function multiplicar(a: number, b: number): number {
+  return a * b
+}
+
 const resultado = suma(2, 3)
 
 if (resultado !== 5) {
