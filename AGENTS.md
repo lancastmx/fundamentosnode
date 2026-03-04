@@ -10,8 +10,12 @@ Match the user's action/request with the triggers below to load the correct skil
   -> LOAD: `.gemini/skills/commit-helper/`
 - **IF** user asks to document files/modules:
   -> LOAD: `.gemini/skills/doc-expert/`
-- **IF** user types "Nuevo PBI: [name]" OR "Cerrar PBI":
-  -> LOAD: `.gemini/skills/git-flow-manager/`
+- **IF** user wants to iniciar PBI, nuevo PBI o crear rama:
+  -> LOAD: `.gemini/skills/git-start-pbi/`
+- **IF** user wants to guardar avance, hacer commit, o registrar cambios:
+  -> LOAD: `.gemini/skills/git-commit-advance/`
+- **IF** user wants to cerrar PBI, fin del PBI o integrar feature:
+  -> LOAD: `.gemini/skills/git-close-pbi/`
 - **IF** user creates/modifies core functions OR types `// generar logs`:
   -> LOAD: `.gemini/skills/logger-gen/`
 - **IF** user asks for a new capacity, tool, or skill:
