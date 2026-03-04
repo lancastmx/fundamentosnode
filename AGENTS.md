@@ -7,25 +7,25 @@ You are the Orchestrator. Your ONLY job is to analyze the user's prompt, identif
 Match the user's action/request with the triggers below to load the correct skill path:
 
 - **IF** user finishes changes OR asks for a commit:
-  -> LOAD: `.gemini/skills/commit-helper/`
+  -> LOAD: [.gemini/skills/commit-helper/SKILL.md](./.gemini/skills/commit-helper/SKILL.md)
 - **IF** user asks to document files/modules:
-  -> LOAD: `.gemini/skills/doc-expert/`
+  -> LOAD: [.gemini/skills/doc-expert/SKILL.md](./.gemini/skills/doc-expert/SKILL.md)
 - **IF** user wants to iniciar PBI, nuevo PBI o crear rama:
-  -> LOAD: `.gemini/skills/git-start-pbi/`
+  -> LOAD: [.gemini/skills/git-start-pbi/SKILL.md](./.gemini/skills/git-start-pbi/SKILL.md)
 - **IF** user wants to guardar avance, hacer commit, o registrar cambios:
-  -> LOAD: `.gemini/skills/git-commit-advance/`
+  -> LOAD: [.gemini/skills/git-commit-advance/SKILL.md](./.gemini/skills/git-commit-advance/SKILL.md)
 - **IF** user wants to cerrar PBI, fin del PBI o integrar feature:
-  -> LOAD: `.gemini/skills/git-close-pbi/`
+  -> LOAD: [.gemini/skills/git-close-pbi/SKILL.md](./.gemini/skills/git-close-pbi/SKILL.md)
 - **IF** user creates/modifies core functions OR types `// generar logs`:
-  -> LOAD: `.gemini/skills/logger-gen/`
+  -> LOAD: [.gemini/skills/logger-gen/SKILL.md](./.gemini/skills/logger-gen/SKILL.md)
 - **IF** user asks for a new capacity, tool, or skill:
-  -> LOAD: `.gemini/skills/skill-factory/`
+  -> LOAD: [.gemini/skills/skill-factory/SKILL.md](./.gemini/skills/skill-factory/SKILL.md)
 - **IF** user asks to create/update the agent manual:
-  -> LOAD: `.gemini/skills/skill-doc-writer/`
+  -> LOAD: [.gemini/skills/skill-doc-writer/SKILL.md](./.gemini/skills/skill-doc-writer/SKILL.md)
 - **IF** user asks to scan pending tasks or TODOs:
-  -> LOAD: `.gemini/skills/todo-scanner/`
+  -> LOAD: [.gemini/skills/todo-scanner/SKILL.md](./.gemini/skills/todo-scanner/SKILL.md)
 - **IF** user creates or modifies a `.ts` file:
-  -> LOAD: `.gemini/skills/unit-test-gen/`
+  -> LOAD: [.gemini/skills/unit-test-gen/SKILL.md](./.gemini/skills/unit-test-gen/SKILL.md)
 
 ## ⚙️ Execution Protocol
 

@@ -40,6 +40,33 @@ bun add -g @google/gemini-cli
 
 Una vez instalado, el CLI detectará automáticamente las _skills_ configuradas en el directorio `.gemini/skills/` y el archivo de instrucciones `AGENTS.md` del proyecto.
 
+### Interacción con Agentes IA desde la Terminal
+
+Para comunicarte con los agentes, los desarrolladores deben usar los siguientes comandos:
+
+1. **Sesión interactiva**:
+   Ejecuta el siguiente comando para abrir una sesión interactiva:
+
+   ```bash
+   gemini chat
+   ```
+
+2. **Comandos directos**:
+   Para enviar una orden directa a la IA de forma rápida:
+   ```bash
+   gemini ask "[orden]"
+   ```
+
+#### Ejemplos prácticos de uso diario
+
+Para facilitar el flujo de trabajo, utiliza los siguientes triggers exactos de nuestro catálogo para interactuar con los agentes:
+
+- Para empezar a programar: `"iniciar PBI"`
+- Para guardar código: `"guardar avance"`
+- Para terminar: `"fin del PBI"`
+- Para hacer tests: `"generar pruebas para [archivo]"`
+- Para crear nuevas herramientas: `"crear una nueva capacidad"`
+
 ---
 
 This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
