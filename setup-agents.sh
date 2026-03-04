@@ -2,7 +2,6 @@
 # Directorio donde Gemini CLI buscará las skills
 LOCAL_SKILLS_DIR=".gemini/skills"
 AGENTS_FILE="AGENTS.md"
-MANUAL_FILE="docs/MANUAL_AGENTE.md"
 
 echo "🚀 Iniciando configuración de entorno tipo 'Tony Stark'..."
 
@@ -27,27 +26,42 @@ else
     echo "⚠️ No se encontró carpeta maestra. Usando modo 'Portátil'."
 fi
 
-# 4. Regenerar AGENTS.md con GOBERNANZA (Aquí ocurre la magia)
-echo "# AGENTS.md (Auto-generado)" > "$AGENTS_FILE"
-echo "" >> "$AGENTS_FILE"
+# 4. Regenerar AGENTS.md dinámicamente (El Router Inteligente)
+echo "🧠 Construyendo tabla de enrutamiento dinámico..."
 
-echo "## 📜 Manual Operativo (Contexto Global)" >> "$AGENTS_FILE"
-if [ -f "$MANUAL_FILE" ]; then
-    echo "- \`instrucciones_maestras\`: $MANUAL_FILE" >> "$AGENTS_FILE"
-    echo "> Nota: El agente debe consultar este manual para entender flujos de Git, TDD y estándares de documentación." >> "$AGENTS_FILE"
-else
-    echo "⚠️ ADVERTENCIA: No se encontró $MANUAL_FILE. El agente trabajará sin reglas globales." >> "$AGENTS_FILE"
-fi
+cat << 'EOF' > "$AGENTS_FILE"
+# 🧠 SYSTEM: Orchestrator Router
 
-echo "" >> "$AGENTS_FILE"
-echo "## 🛠️ Skills Activas" >> "$AGENTS_FILE"
+You are the Orchestrator. Your ONLY job is to analyze the user's prompt, identify the correct trigger, and load the specific skill context. Do NOT load all skills at once. Do NOT execute the task directly; delegate it.
+
+## 🔀 Skill Routing Table (Triggers)
+Match the user's action/request with the triggers below to load the correct skill path:
+EOF
 
 for dir in "$LOCAL_SKILLS_DIR"/*; do
     if [ -d "$dir" ] || [ -L "$dir" ]; then
         skill_name=$(basename "$dir")
-        echo "- \`$skill_name\`: $LOCAL_SKILLS_DIR/$skill_name/" >> "$AGENTS_FILE"
+        skill_file="$dir/SKILL.md"
+        
+        # Extraer el trigger del archivo SKILL.md usando grep y sed
+        if [ -f "$skill_file" ]; then
+            trigger=$(grep "^trigger:" "$skill_file" | sed "s/^trigger:[ \'\"]*//;s/[ \'\"]*$//")
+        else
+            trigger="user requires the $skill_name tool"
+        fi
+        
+        echo "- **IF** $trigger:" >> "$AGENTS_FILE"
+        echo "  -> LOAD: \`$LOCAL_SKILLS_DIR/$skill_name/\`" >> "$AGENTS_FILE"
     fi
 done
 
-echo "" >> "$AGENTS_FILE"
-echo "✅ Entorno listo. AGENTS.md ahora incluye el manual de gobernanza."
+cat << 'EOF' >> "$AGENTS_FILE"
+
+## ⚙️ Execution Protocol
+1. Identify the Trigger from the Routing Table.
+2. Silently read the `SKILL.md` (or `README.md`) inside the matching `.gemini/skills/` directory.
+3. Execute the exact instructions defined within that specific skill.
+EOF
+
+echo "✅ Enrutador AGENTS.md regenerado con inteligencia."
+echo "🤖 RECORDATORIO: Para actualizar el manual humano, dile al agente: 'Actualiza el manual de agentes'."
