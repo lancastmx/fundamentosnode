@@ -17,14 +17,16 @@ Eres el administrador del flujo de código. Tienes 4 fases de operación distint
 3. Crea la nueva rama: `git checkout -b feature/[nombre-del-pbi]`
 4. Confirma al usuario que el entorno está listo.
 
-## Fase 2: Primer Avance (Commit Parcial)
+## Fase 2: Avance o Commit Rápido (Hotfix)
 
-**Trigger del usuario:** "Primer avance" o "Guarda este avance"
+**Trigger del usuario:** "Primer avance", "Guarda este avance", "Cambio rápido"
 
-1. Ejecuta `git status` y `git diff` para entender qué cambió.
-2. Ejecuta `git add .`
-3. Escribe un mensaje de commit resumido y ejecuta: `git commit -m "avance: [resumen breve de los cambios]"`
-4. No hagas merge ni invoques a otros agentes. Solo guarda el estado.
+1. **Verificación de Entorno:** Ejecuta `git branch --show-current`. Si estás en `dev` o `main`, asume que es un cambio rápido (Hotfix). Si estás en `feature/`, es un avance normal.
+2. Ejecuta `git status` y `git diff` para analizar los cambios.
+3. Haz `git add .` e intenta el commit normal: `git commit -m "avance: [resumen exacto del diff]"`
+4. **Manejo Inteligente de Errores (Pre-commit):** - Si el commit falla por un hook (linter/tests), analiza qué archivos cambiaste.
+   - Si SOLO modificaste documentación (`.md`), scripts (`.sh`) o configuraciones, ejecuta automáticamente con `--no-verify` para no bloquear al usuario.
+   - Si modificaste código fuente (`.ts`), **DETENTE**, muestra el error y pregúntale al usuario si quiere corregirlo o forzarlo manualmente.
 
 ## Fase 3: Validación IA (QA y Documentación Inteligente)
 
