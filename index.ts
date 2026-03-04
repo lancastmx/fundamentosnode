@@ -31,6 +31,14 @@ export function multiplicar(a: number, b: number): number {
   return a * b
 }
 
+/**
+ * Función que presenta el proyecto.
+ * @returns Un saludo indicando el nombre de los creadores o propósito del proyecto.
+ */
+export function quienesSomos(): string {
+  return 'Este es un proyecto de fundamentos de Node/Bun creado por el agente de IA'
+}
+
 const resultado = suma(2, 3)
 
 if (resultado !== 5) {
